@@ -52,7 +52,7 @@ export default function UseBootSequence() {
 
     const timeout = setTimeout(() => {
       setPhase("sequence");
-    }, 500);
+    }, 150);
 
     return () => clearTimeout(timeout);
   }, [phase]);
@@ -73,21 +73,21 @@ export default function UseBootSequence() {
 
     const runSequence = async () => {
       playBeep();
-      await sleep(250);
+      await sleep(60);
 
       for (const step of bootSequence) {
         if (cancelled) return;
 
         if (step.type === "blank") {
           setRenderedLines((prev) => [...prev, { type: "blank" }]);
-          await sleep(180);
+          await sleep(40);
           continue;
         }
 
         if (step.type === "line") {
           setRenderedLines((prev) => [...prev, { type: "line", text: step.text }]);
           playBlip();
-          await sleep(220);
+          await sleep(50);
           continue;
         }
 
@@ -125,7 +125,7 @@ export default function UseBootSequence() {
             await sleep(step.interval);
           }
 
-          await sleep(180);
+          await sleep(40);
           continue;
         }
 
@@ -155,7 +155,7 @@ export default function UseBootSequence() {
 
           playBlip();
 
-          await sleep(220);
+          await sleep(50);
           continue;
         }
 
@@ -179,7 +179,7 @@ export default function UseBootSequence() {
 
           for (let i = 0; i < 10; i++) {
             if (cancelled) return;
-            await sleep(120);
+            await sleep(30);
 
             setRenderedLines((prev) =>
               prev.map((line) =>
@@ -190,7 +190,7 @@ export default function UseBootSequence() {
             );
           }
 
-          await sleep(200);
+          await sleep(50);
 
           setRenderedLines((prev) => [
             ...prev,
@@ -206,8 +206,8 @@ export default function UseBootSequence() {
           playBlip();
 
           const spinnerFrames = ["/", "-", "\\", "|"];
-          const spinnerDuration = 1000;
-          const spinnerInterval = 100;
+          const spinnerDuration = 250;
+          const spinnerInterval = 50;
           const ticks = spinnerDuration / spinnerInterval;
 
           for (let i = 0; i < ticks; i++) {
@@ -233,7 +233,7 @@ export default function UseBootSequence() {
 
           playBlip();
 
-          await sleep(250);
+          await sleep(60);
 
           setRenderedLines((prev) => [
             ...prev,
@@ -250,7 +250,7 @@ export default function UseBootSequence() {
 
           for (let i = 0; i < 13; i++) {
             if (cancelled) return;
-            await sleep(120);
+            await sleep(30);
 
             setRenderedLines((prev) =>
               prev.map((line) =>
@@ -261,7 +261,7 @@ export default function UseBootSequence() {
             );
           }
 
-          await sleep(900);
+          await sleep(200);
         }
       }
 

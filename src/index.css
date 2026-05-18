@@ -103,9 +103,9 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #008080;
-  background-size: auto;
-  background-position: top left;
-  background-repeat: repeat;
+  background-size: 130%;
+  background-position: center 12%;
+  background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
   font-family: sans-serif;
@@ -211,8 +211,12 @@ body {
 .taskbar-window-button {
   height: 28px;
   min-width: 140px;
+  max-width: 160px;
   padding: 0 10px;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .taskbar-clock {

@@ -47,16 +47,24 @@ export default function Taskbar({
           </button>
         )}
 
-        {browserWindows.map((browser, index) => (
-          <button
-            key={browser.id}
-            className="taskbar-window-button"
-            onClick={() => onBrowserClick(browser.id)}
-          >
-            {browser.minimized ? "[ ] " : ""}
-            {browser.file?.name || `Browser ${index + 1}`}
-          </button>
-        ))}
+        {browserWindows.map((browser, index) => {
+          const fileName = browser.file?.name || `Browser ${index + 1}`;
+          const truncatedName = fileName.length > 20
+            ? fileName.slice(0, 17) + "..."
+            : fileName;
+
+          return (
+            <button
+              key={browser.id}
+              className="taskbar-window-button"
+              onClick={() => onBrowserClick(browser.id)}
+              title={fileName}
+            >
+              {browser.minimized ? "[ ] " : ""}
+              {truncatedName}
+            </button>
+          );
+        })}
       </div>
 
       <div className="taskbar-clock">{time}</div>

@@ -12,6 +12,10 @@ const FileSystem = {
             type: "file",
             page: "linear-regression",
           },
+          "document-workflow-intelligence.html": {
+            type: "file",
+            page: "document-workflow-intelligence",
+          },
         },
       },
     },

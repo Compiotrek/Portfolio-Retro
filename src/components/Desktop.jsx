@@ -9,6 +9,8 @@ import cliIcon from "../assets/cli.png";
 import browserIcon from "../assets/browser.png";
 import explorerIcon from "../assets/explorer.png";
 import backgroundImage from "../assets/backgr.png";
+import githubIcon from "../assets/GitHub.png";
+import linkedinIcon from "../assets/LinkedIN.png";
 
 export default function Desktop() {
   const [terminalOpen, setTerminalOpen] = useState(true);
@@ -127,6 +129,18 @@ export default function Desktop() {
           label="Documents"
           icon={explorerIcon}
           onDoubleClick={handleOpenExplorer}
+          large
+        />
+        <DesktopIcon
+          label="GitHub"
+          icon={githubIcon}
+          onDoubleClick={() => window.open("https://github.com/Compiotrek", "_blank")}
+          large
+        />
+        <DesktopIcon
+          label="LinkedIn"
+          icon={linkedinIcon}
+          onDoubleClick={() => window.open("www.linkedin.com/in/jakob-karsten", "_blank")}
           large
         />
       </div>
