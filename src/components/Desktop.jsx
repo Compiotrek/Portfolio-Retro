@@ -140,7 +140,7 @@ export default function Desktop() {
         <DesktopIcon
           label="LinkedIn"
           icon={linkedinIcon}
-          onDoubleClick={() => window.open("www.linkedin.com/in/jakob-karsten", "_blank")}
+          onDoubleClick={() => window.open("https://www.linkedin.com/in/jakob-karsten", "_blank")}
           large
         />
       </div>
